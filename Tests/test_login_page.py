@@ -38,14 +38,22 @@ class TestLoginPage(BaseTestCase):
         self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLVALIDMAIL))
         self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLVALIDPASS))
 
-
     def test_login_valid_user_invalid_pass(self):
         lp = LoginPage(self.driver)
         lp.login_as("sdjukic980@gmail.com","23456789")
         self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLINCORRECT))
 
-
     def test_login_invalid_user_valid_pass(self):
         lp = LoginPage(self.driver)
         lp.login_as("dummyuser","TestAutomationTask")
+        self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLINCORRECT))
+
+    def test_login_user_true_pass_true(self):
+        lp = LoginPage(self.driver)
+        lp.login_as("True","True")
+        self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLINCORRECT))
+
+    def test_login_sql(self):
+        lp = LoginPage(self.driver)
+        lp.login_as("test' or true--","'test or true--")
         self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLINCORRECT))
