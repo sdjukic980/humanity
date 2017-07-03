@@ -20,6 +20,20 @@ class BasePageClass:
                 current_wait += 0.5
                 sleep(0.5)
 
+    def wait_for_text(self, timeout, *element):
+        tout = timeout
+        current_wait = 0
+        while tout > current_wait:
+
+            try:
+                el = self.driver.find_element(element[0], element[1])
+                if el.text != '':
+                    break
+
+            except:
+                current_wait += 0.5
+                sleep(0.5)
+
     def check_if_element_exists(self,*element):
         self.wait_for_element(30,*element)
         lbl = self.driver.find_element(*element)
