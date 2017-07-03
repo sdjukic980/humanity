@@ -6,4 +6,4 @@ class ForgotPasswordLocator():
     RETURNTOLOGIN = (By.XPATH,'//*[@id="request_reset_password"]/div[1]/a')
     ENTEREMAIL = (By.XPATH,'//*[@id="email"]')
     BTNREQUESTNEWPASSWORD = (By.XPATH,'//*[@id="request_reset_password"]/div[4]/button')
-    LBLEMAILISREQUIRED = (By.XPATH,'//*[@id="error"]')
+    LABELERROR = (By.XPATH,'//*[@id="error"]')

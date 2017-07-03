@@ -5,6 +5,7 @@ from time import sleep
 class BasePageClass:
     def __init__(self, driver: webdriver.Remote):
         self.driver = driver
+        self.timeout = 30
 
     def wait_for_element(self, timeout, *element):
         tout = timeout

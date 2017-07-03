@@ -24,7 +24,7 @@ class LoginPage(BasePageClass):
         self.click_login()
 
     def check_if_label_exists(self,*label):
-        self.wait_for_element(30,*label)
+        self.wait_for_text(30,*label)
         lbl = self.driver.find_element(*label)
         return lbl
 

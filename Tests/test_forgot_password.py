@@ -26,8 +26,7 @@ class TestForgotPassword(BaseTestCase):
         fp = ForgotPasswordPage(self.driver)
         fp.enter_email("test")
         fp.click_request_new_pass_btn()
-        fp.wait_for_element(30,*ForgotPasswordLocator.LBLEMAILISREQUIRED)
-        self.assertTrue(fp.check_if_element_exists(*ForgotPasswordLocator.LBLEMAILISREQUIRED))
+        self.assertEqual(fp.error_label_text(),'Not valid e-mail address')
 
     def test_forgot_pass_incorrect_mail(self):
         lp = LoginPage(self.driver)
@@ -35,4 +34,4 @@ class TestForgotPassword(BaseTestCase):
         fp = ForgotPasswordPage(self.driver)
         fp.enter_email("testuser@test.gov")
         fp.click_request_new_pass_btn()
-        self.assertTrue(fp.check_if_element_exists(*ForgotPasswordLocator.LBLEMAILISREQUIRED))
+        self.assertEqual(fp.error_label_text(),'Invalid user')
