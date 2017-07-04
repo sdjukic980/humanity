@@ -15,6 +15,7 @@ class TestLoginPage(BaseTestCase):
     def test_login_username_caps(self):
         lp = LoginPage(self.driver)
         lp.login_as("sdjukic980@gmail.com".upper(),"TestAutomationTask")
+        hp = HomePage(self.driver)
         self.assertTrue(hp.check_if_btn_schedule_present())
 
     def test_login_password_caps(self):
