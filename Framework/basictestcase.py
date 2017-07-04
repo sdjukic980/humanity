@@ -17,7 +17,7 @@ class BaseTestCase(unittest.TestCase):
 
 
     def setUp(self):
-        self.driver = webdriver.Chrome("C:\\Users\\Sloba\\Desktop\\slnm\\chromedriver.exe")
+        self.driver = webdriver.Chrome("C:\\humanity\\chromedriver.exe")
         self.driver.maximize_window()
         base_url = "https://automation1.humanity.com/app/"
         self.driver.get(base_url)

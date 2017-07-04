@@ -14,12 +14,12 @@ class TestLoginPage(BaseTestCase):
 
     def test_login_username_caps(self):
         lp = LoginPage(self.driver)
-        lp.login_as("sdjukic980@gmail.com".capitalize(),"TestAutomationTask")
-        self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLINCORRECT))
+        lp.login_as("sdjukic980@gmail.com".upper(),"TestAutomationTask")
+        self.assertTrue(hp.check_if_btn_schedule_present())
 
     def test_login_password_caps(self):
         lp = LoginPage(self.driver)
-        lp.login_as("sdjukic980@gmail.com", "TestAutomationTask".capitalize())
+        lp.login_as("sdjukic980@gmail.com", "TestAutomationTask".upper())
         self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLINCORRECT))
 
     def test_login_username_missing(self):
@@ -45,13 +45,14 @@ class TestLoginPage(BaseTestCase):
 
     def test_login_invalid_user_valid_pass(self):
         lp = LoginPage(self.driver)
-        lp.login_as("dummyuser","TestAutomationTask")
+        lp.login_as("dummyusertest","TestAutomationTask")
         self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLINCORRECT))
 
     def test_login_user_true_pass_true(self):
         lp = LoginPage(self.driver)
         lp.login_as("True","True")
-        self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLINCORRECT))
+        self.assertTrue(lp.check_if_label_exists(*LoginPageLocator.LBLACCOUNTNOTACTIVATED) or
+                        lp.check_if_label_exists(*LoginPageLocator.LBLINCORRECT))
 
     def test_login_sql(self):
         lp = LoginPage(self.driver)

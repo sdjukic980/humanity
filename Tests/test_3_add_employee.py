@@ -17,9 +17,10 @@ class TestAddEmployee(BaseTestCase):
         lp.login_as("sdjukic980@gmail.com","TestAutomationTask")
         hp.click_on_staff()
         sp.click_on_add_new_employee()
-        ae.add_employe_as("Test","Employee1","test2@mycompany.com")
+        ae.add_employe_as("Test","Employee1","")
         ae.save_employees()
         self.assertEqual(ae.label_message(),"1 employees saved!")
+        a_s.check_role()
 
     def test_2_add_existing_employee(self):
 
@@ -31,7 +32,7 @@ class TestAddEmployee(BaseTestCase):
         lp.login_as("sdjukic980@gmail.com","TestAutomationTask")
         hp.click_on_staff()
         sp.click_on_add_new_employee()
-        ae.add_employe_as("Test", "Employee1", "test2@mycompany.com")
+        ae.add_employe_as("Test", "Employee1", "test22@mycompany.com")
         ae.save_employees()
         self.assertEqual(ae.label_message(),'0 employees saved!! But some emails already taken !')
 

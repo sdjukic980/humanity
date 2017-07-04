@@ -10,4 +10,6 @@ class LoginPageLocator:
     LBLVALIDPASS = (By.XPATH,'//*[@id="valid_password"]')
     FORGOTPASSWORD = (By.XPATH,'//*[@id="login"]/div[2]/div[2]/a')
     WELCOME = (By.XPATH,'//*[@id="hum-banner"]/p')
+    LBLNOTACTIVATED = (By.XPATH,'//*[@id="notactivated"]')
+    LBLACCOUNTNOTACTIVATED = (By.XPATH,'//*[@id="notactivated"]')
 

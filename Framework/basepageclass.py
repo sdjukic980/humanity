@@ -4,11 +4,15 @@ from time import sleep
 
 class BasePageClass:
     def __init__(self, driver: webdriver.Remote):
-        self.driver = driver
-        self.timeout = 30
 
-    def wait_for_element(self, timeout, *element):
-        tout = timeout
+        """Initiates BasePage Class with driver passed as parameter and timeout in seconds
+        for wait for element and wait for text methods"""
+
+        self.driver = driver
+        self.timeout = 5
+
+    def wait_for_element(self, *element):
+        tout = self.timeout
         current_wait = 0
         while tout > current_wait:
 
@@ -21,8 +25,8 @@ class BasePageClass:
                 current_wait += 0.5
                 sleep(0.5)
 
-    def wait_for_text(self, timeout, *element):
-        tout = timeout
+    def wait_for_text(self, *element):
+        tout = self.timeout
         current_wait = 0
         while tout > current_wait:
 
